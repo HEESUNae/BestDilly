@@ -1,46 +1,19 @@
-# Getting Started with Create React App
+## 전국 맛집 공유 플랫폼, BestDilly!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+전국의 맛집을 등록하고 공유하는 플랫폼으로  
+개인 포트폴리오용으로 만들어진 홈페이지입니다.
 
-## Available Scripts
+### 작업내용
 
-In the project directory, you can run:
+- 홈페이지 디자인 & 퍼블리싱
+- 지역별로 맛집리스트 필터 기능
+- 찜한 사람이 높은 리스트 순서대로 정렬
+- 카카오지도 API를 이용하여 맛집 위치 표출
+- 맛집등록시 선택한 파일 이미지 미리보기
+- 카카오 주소찾기 API를 이용하여 주소입력
 
-### `npm start`
+! CRUD API가 없어서 구현하지 못한 부분은 alert 처리되어있음
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 기술스택
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+React, Typescript, Styled-components, react-router-dom
