@@ -6,13 +6,14 @@ interface BasicInputProps {
   value?: string;
   onClick?: () => void;
   onChange?: (e: any) => void;
+  formValue?: any;
 }
 
-const BasicInput = ({ type = 'text', label, value, onClick, onChange }: BasicInputProps) => {
+const BasicInput = ({ type = 'text', label, value, onClick, onChange, formValue }: BasicInputProps) => {
   return (
     <label>
       <p>{label}</p>
-      <StyledBasicInput type={type} defaultValue={value} onClick={onClick} onChange={onChange} />
+      <StyledBasicInput type={type} defaultValue={value} onClick={onClick} onChange={onChange} {...formValue} />
     </label>
   );
 };

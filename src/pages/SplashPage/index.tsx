@@ -19,7 +19,7 @@ const SplashPage = () => {
       </p>
       <p>
         디자인 & 퍼블리싱 & 카카오지도, 주소검색 API 연동했으며,
-        <br /> 현재 CRUD API가 없으므로 해당 기능은 작동하지 않습니다. <br />
+        <br /> 현재 일부기능은 작업예정이므로 작동하지 않을 수 있습니다. <br />
       </p>
       <PrimaryBtn title="페이지 보러가기" isIcon={IconImage.iconArrowCircleRight} onClick={() => navigation('/main')} />
     </StyledSplashPage>

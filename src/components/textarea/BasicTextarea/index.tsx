@@ -3,13 +3,14 @@ import { StyledBasicTextarea } from './style';
 
 interface BasicTextareaProps {
   label: string;
+  formValue?: any;
 }
 
-const BasicTextarea = ({ label }: BasicTextareaProps) => {
+const BasicTextarea = ({ label, formValue }: BasicTextareaProps) => {
   return (
     <label>
       <p>{label}</p>
-      <StyledBasicTextarea />
+      <StyledBasicTextarea {...formValue} />
     </label>
   );
 };

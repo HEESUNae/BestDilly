@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useState } from 'react';
-import { bestList, locals } from '../data';
+import { locals } from '../data';
 import { BestListProps } from '../types';
 
 export const useCategory = () => {
@@ -27,9 +27,13 @@ export const useCategory = () => {
     setCategoryList([...categoryList]);
 
     // 체크된 지역 맛집만 보여주기
-    const selectLocal = categoryList.filter((v) => v.checked === true).map((v) => v.name);
-    const checkLocal = bestList.filter((v) => selectLocal.includes(v.local));
-    categoryList[0].checked ? setLists(bestList) : setLists(checkLocal);
+    const localBestList = localStorage.getItem('bestList');
+    if (localBestList) {
+      const getLocalStorageBestList = JSON.parse(localBestList);
+      const selectLocal = categoryList.filter((v) => v.checked === true).map((v) => v.name);
+      const checkLocal = getLocalStorageBestList.filter((v: BestListProps) => selectLocal.includes(v.local));
+      categoryList[0].checked ? setLists(getLocalStorageBestList) : setLists(checkLocal);
+    }
   };
 
   return { categoryList, onLocalCheck };

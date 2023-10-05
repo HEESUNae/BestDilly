@@ -5,7 +5,7 @@ type PrimaryType = {
   type?: 'button' | 'submit';
   isIcon?: string;
   title: string;
-  onClick?: (e: FormEvent) => void;
+  onClick?: () => void;
 };
 
 const PrimaryBtn = ({ type = 'button', title, isIcon, onClick }: PrimaryType) => {

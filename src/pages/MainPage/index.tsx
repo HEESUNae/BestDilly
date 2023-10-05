@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { bestList } from '../../data';
 import { StyledMainPage } from './style';
@@ -14,8 +14,7 @@ import KakaoMap from '../../components/Map';
 import PrimaryBtn from '../../components/button/PrimaryBtn';
 
 const MainPage = () => {
-  const newList = bestList.sort((a, b) => b.favorite - a.favorite);
-  const [lists, setLists] = useState<BestListProps[]>(newList);
+  const [lists, setLists] = useState<BestListProps[]>([]);
   const [isModal, setIsModal] = useState(false);
   const [modalContent, setModalContent] = useState<BestListProps | null>(null);
 
@@ -33,13 +32,36 @@ const MainPage = () => {
   const onViewModal = (list?: BestListProps) => {
     list ? setModalContent(list) : setModalContent(null);
     setIsModal(!isModal);
-    document.body.style.overflow = isModal ? 'unset' : 'hidden';
   };
 
   // 수정/삭제 준비중 팝업
   const onPrepairing = () => {
-    alert('현재 CRUD API가 없으므로 해당기능은 제공하지 않습니다.');
+    alert('작업예정입니다.');
   };
+
+  // 리스트 삭제
+  const onRemoveBestList = (listId: number) => {
+    const removeList = lists.filter((v) => v.id !== listId);
+    alert('정말 삭제하시겠습니까?');
+    localStorage.setItem('bestList', JSON.stringify(removeList));
+    setLists(removeList);
+    setIsModal(!isModal);
+  };
+
+  // 로컬스토리지에 리스트 저장
+  useEffect(() => {
+    const localBestList = localStorage.getItem('bestList');
+    if (localBestList) {
+      // 로컬스토리지 값 배열로 변환
+      const getLocalStorageBestList = JSON.parse(localBestList);
+      setLists(getLocalStorageBestList);
+    } else {
+      // 처음 로컬스토리지 저장
+      const newList = bestList.sort((a, b) => b.favorite - a.favorite);
+      const newListStr = JSON.stringify(newList);
+      localStorage.setItem('bestList', newListStr);
+    }
+  }, []);
 
   return (
     <StyledMainPage>
@@ -99,7 +121,7 @@ const MainPage = () => {
               </div>
               <div className="btn-container">
                 <PrimaryBtn title="수정" onClick={onPrepairing} />
-                <PrimaryBtn title="삭제" onClick={onPrepairing} />
+                <PrimaryBtn title="삭제" onClick={() => onRemoveBestList(modalContent.id)} />
               </div>
             </div>
           </BestModal>

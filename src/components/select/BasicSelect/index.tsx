@@ -3,13 +3,14 @@ import { StyledSelect } from './style';
 
 interface BasicSelectProps {
   label?: string;
+  formValue?: any;
 }
 
-const BasicSelect = ({ label }: BasicSelectProps) => {
+const BasicSelect = ({ label, formValue }: BasicSelectProps) => {
   return (
     <label>
       <p>{label}</p>
-      <StyledSelect>
+      <StyledSelect {...formValue}>
         {locals.map(
           (local, index) =>
             local.name !== '전국' && (
