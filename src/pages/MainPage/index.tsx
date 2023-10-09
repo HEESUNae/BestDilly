@@ -48,6 +48,11 @@ const MainPage = () => {
     setIsModal(!isModal);
   };
 
+  // 리스트 수정
+  const onUpdateBestList = () => {
+    navigate('/write', { state: modalContent });
+  };
+
   // 로컬스토리지에 리스트 저장
   useEffect(() => {
     const localBestList = localStorage.getItem('bestList');
@@ -120,7 +125,7 @@ const MainPage = () => {
                 <KakaoMap address={modalContent.address} title={modalContent.title} />
               </div>
               <div className="btn-container">
-                <PrimaryBtn title="수정" onClick={onPrepairing} />
+                <PrimaryBtn title="수정" onClick={() => onUpdateBestList()} />
                 <PrimaryBtn title="삭제" onClick={() => onRemoveBestList(modalContent.id)} />
               </div>
             </div>
