@@ -13,7 +13,7 @@ export const StyledSplashPage = styled.div`
     color: #e8e8e8;
     text-align: center;
     font-size: 1.3rem;
-    line-height: 1.5;
+    line-height: 1.7;
     &.logo {
       color: ${myTheme.colors.main};
       font-weight: 600;

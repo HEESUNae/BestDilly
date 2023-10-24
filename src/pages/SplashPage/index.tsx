@@ -15,11 +15,8 @@ const SplashPage = () => {
       </div>
       <p>
         해당페이지는 React, Typescript를 활용하여
+        <br /> 디자인 & 퍼블리싱 & 카카오지도, 주소검색 API 연동했으며
         <br /> 개인 포트폴리오 용도로 만들어졌습니다.
-      </p>
-      <p>
-        디자인 & 퍼블리싱 & 카카오지도, 주소검색 API 연동했으며,
-        <br /> 현재 일부기능은 작업예정이므로 작동하지 않을 수 있습니다. <br />
       </p>
       <PrimaryBtn title="페이지 보러가기" isIcon={IconImage.iconArrowCircleRight} onClick={() => navigation('/main')} />
     </StyledSplashPage>
